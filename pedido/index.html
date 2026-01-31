@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pra você 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top, #6a4cff, #2b0a3d);
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #f1f1f1;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 520px;
+      width: 100%;
+      padding: 40px 30px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+      text-align: center;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #dcdcdc;
+      margin-bottom: 25px;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 25px 0 30px;
+    }
+
+    .galeria img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 14px;
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+    }
+
+    .question {
+      font-size: 1.5rem;
+      margin: 25px 0 20px;
+      font-weight: 600;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 15px;
+      position: relative;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 14px 30px;
+      font-size: 1rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 500;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .yes {
+      background: linear-gradient(135deg, #ff4d6d, #ff758f);
+      color: white;
+    }
+
+    .no {
+      background: rgba(255,255,255,0.15);
+      color: #eee;
+      position: relative;
+    }
+
+    .response {
+      margin-top: 22px;
+      font-size: 1.15rem;
+      color: #ffb3c1;
+      display: none;
+      padding: 0 10px;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.75rem;
+      opacity: 0.4;
+    }
+
+    /* MOBILE AJUSTES */
+    @media (max-width: 480px) {
+      h1 { font-size: 1.5rem; }
+
+      p { font-size: 0.95rem; }
+
+      .question { font-size: 1.3rem; }
+
+      .galeria {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      button {
+        width: 100%;
+        max-width: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- TEXTO PERSONALIZÁVEL -->
+    <h1>Cecilia💖</h1>
+    <p>
+       Pensei em diversas formas de fazer esse pedido, mas nenhuma me agradava, então resolvi fazer dessa 
+       forma, simples e direta, já que essas coisas muito elaboradas não são a minha praia. Eu queria que você
+       soubesse o quanto você é incrivel e o quanto você faz minha vida melhor só por estar nela. E eu quero continuar
+       vivendo tudo isso ao seu lado, eu quero construir um futuro com você! Então, eu te pergunto:
+
+
+
+    </p>
+
+    <!-- GALERIA DE FOTOS -->
+    <div class="galeria">
+      <img src="cecilia1.jpeg" alt="Nós dois">
+      <img src="cecilia2.jpeg" alt="Momentos">
+      <img src="cecilia3.jpeg" alt="Você">
+    </div>
+
+    <!-- PERGUNTA -->
+    <div class="question">Quer namorar comigo? 💖</div>
+
+    <!-- BOTÕES -->
+    <div class="buttons">
+      <button class="yes" onclick="responderSim()">Sim</button>
+      <button class="no" id="noBtn" onmouseover="fugir()">Não</button>
+    </div>
+
+    <!-- RESPOSTA -->
+    <div class="response" id="response"></div>
+
+    <footer>te amo cecilia S2 </footer>
+  </div>
+
+  <script>
+    function responderSim() {
+      const r = document.getElementById('response');
+      r.style.display = 'block';
+      r.innerHTML = 'eu te amo muito!';
+    }
+
+    function fugir() {
+      const btn = document.getElementById('noBtn');
+      const container = document.querySelector('.container');
+
+      const maxX = container.clientWidth - btn.offsetWidth - 20;
+      const maxY = container.clientHeight - btn.offsetHeight - 20;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      btn.style.position = 'absolute';
+      btn.style.left = x + 'px';
+      btn.style.top = y + 'px';
+    }
+  </script>
+</body>
+</html> 
